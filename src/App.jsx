@@ -15,7 +15,7 @@ function App() {
       const response = await fetch(
         "https://restcountries.com/v3.1/all?fields=name,capital,region,population,flags,cca3"
       );
-      if (!response.ok) throw new Error(Erro HTTP: ${response.status});
+      if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
       const data = await response.json();
       setCountries(data);
       setFiltered(data);
@@ -65,7 +65,7 @@ function App() {
           <div className="country-card" key={country.cca3}>
             <img
               src={country.flags.png}
-              alt={country.flags.alt || Bandeira de ${country.name.common}}
+              alt={country.flags.alt || `Bandeira de ${country.name.common}`}
               className="flag"
             />
             <h2>{country.name.common}</h2>
@@ -79,4 +79,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;
